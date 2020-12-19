@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <title>Rest Client Apotek</title>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">MyApotek</a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="topnav right hide-on-med-and-down">
+                    <li><a href="#daftarObat">Daftar Obat</a></li>
+                    <li><a href="#daftarObatMinum">Obat Minum</a></li>
+                    <li><a href="#daftarObatLuar">Obat Luar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul id="slide-out" class="sidenav">
+        <li><a href="#daftarObat">Daftar Obat</a></li>
+        <li><a href="#daftarObatMinum">Obat Minum</a></li>
+        <li><a href="#daftarObatLuar">Obat Luar</a></li>
+    </ul>
+    <div class="container">
+        <h4 class="card-title"></h4>
+        <div id="content-list" class="row">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="btn waves-effect waves-light" type="button" id="btnAdd" onclick="showForm()">
+            Tambah Data
+            <i class="material-icons left">add_box</i>
+        </button>
+        <!-- Form Obat -->
+        <div class="row scale-transition" id="formObatWrapper">
+            <form class="col s12" id="formObat" onsubmit="event.preventDefault(); saveData();">
+                <input type="hidden" id="idInput">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="namaInput" type="text" required>
+                  <label for="namaInput">Nama Obat</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                    <p>
+                        Jenis Obat :&emsp;
+                        <label>
+                          <input name="jenisInput" type="radio" value="Minum" id="rbMinum"/>
+                          <span>Obat Minum</span>
+                        </label>
+                        &emsp;
+                        <label>
+                          <input name="jenisInput" type="radio" value="Luar" id="rbLuar"/>
+                          <span>Obat Luar</span>
+                        </label>
+                    </p>
+                </div>  
+                <div class="input-field col s6">
+                  <input id="stokInput" type="number" class="validate" required>
+                  <label for="stokInput">Stok (pcs)</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6 ">
+                  <input id="harga_jualInput" type="number" required>
+                  <label for="harga_jualInput">Harga Jual (Rp.)</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="harga_modalInput" type="number" class="validate" required>
+                  <label for="harga_modalInput">Harga Modal (Rp.)</label>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="input-field right">
+                    <button class="btn waves-effect waves-light" type="submit" id="btnSave">Simpan
+                        <i class="material-icons left">save</i>
+                    </button>
+                    <button class="btn waves-effect waves-light red" onclick="cancelForm()" type="reset" id="btnCancel">
+                        <i class="material-icons">close</i>
+                    </button>
+                  </div>
+              </div>
+            </form>
+        </div>
+
+        <!-- Tabel Obat -->
+        <table class="highlight scale-transition" id="tabelObat">
+            <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nama Obat</th>
+                  <th>Jenis</th>
+                  <th>Harga Jual</th>
+                  <th>Harga Modal</th>
+                  <th>Stok</th>
+                  <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>
